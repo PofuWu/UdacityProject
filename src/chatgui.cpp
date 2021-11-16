@@ -135,7 +135,7 @@ ChatBotPanelDialog::~ChatBotPanelDialog()
     //// STUDENT CODE
     ////
 
-    delete _chatLogic;
+    //delete _chatLogic; //_chatLogic's resource has already been deleted by class itself. (~ChatLogic())
 
     ////
     //// EOF STUDENT CODE
