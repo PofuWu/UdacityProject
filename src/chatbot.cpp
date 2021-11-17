@@ -82,7 +82,7 @@ ChatBot::ChatBot(ChatBot &&source)
     source._chatLogic = nullptr;
     source._rootNode = nullptr;
     source._currentNode = nullptr;
-    source._image = nullptr;
+    source._image = NULL;
 }
 
 //move assignment operator
@@ -101,7 +101,7 @@ ChatBot &ChatBot::operator=(ChatBot &&source)
     source._chatLogic = nullptr;
     source._rootNode = nullptr;
     source._currentNode = nullptr;
-    source._image = nullptr;
+    source._image = NULL;
     
     return *this;
 }
