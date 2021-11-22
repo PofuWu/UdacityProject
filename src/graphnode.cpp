@@ -11,7 +11,8 @@ GraphNode::~GraphNode()
     //// STUDENT CODE
     ////
 
-    delete _chatBot; 
+    // warm-up task, Remove Initial Seg fault.
+    //delete _chatBot; 
 
     ////
     //// EOF STUDENT CODE
@@ -27,9 +28,15 @@ void GraphNode::AddEdgeToParentNode(GraphEdge *edge)
     _parentEdges.push_back(edge);
 }
 
-void GraphNode::AddEdgeToChildNode(GraphEdge *edge)
-{
-    _childEdges.push_back(edge);
+// Task 4: change to unique ptr.
+void GraphNode::AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge)
+{   
+    //using std::move to move unique ptr.
+    //push_back()` creates a copy of the element you are adding to it, 
+    //and hence you get the error that you are trying to use copy assignment 
+    //on a `unique_ptr`, which is not allowed. Hence, you need to transfer 
+    //ownership from the pointer passed into the function to the `unique_ptr` in the `vector` container.
+    _childEdges.push_back(std::move(edge));
 }
 
 //// STUDENT CODE
@@ -53,7 +60,7 @@ GraphEdge *GraphNode::GetChildEdgeAtIndex(int index)
     //// STUDENT CODE
     ////
 
-    return _childEdges[index];
+    return _childEdges[index].get();
 
     ////
     //// EOF STUDENT CODE

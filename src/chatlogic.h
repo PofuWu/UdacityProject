@@ -19,7 +19,8 @@ private:
     // data handles (owned)
     // Task3: change to smart pointer
     std::vector<std::unique_ptr<GraphNode>> _nodes;//std::vector<GraphNode *> _nodes;
-    std::vector<GraphEdge *> _edges;
+    // Task 4: _edges not use anymore. Already existing a unique ptr vector GraphEdge in GraphNode.cpp.
+    //std::vector<GraphEdge *> _edges;
 
     ////
     //// EOF STUDENT CODE
