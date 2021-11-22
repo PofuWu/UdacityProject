@@ -41,16 +41,19 @@ void GraphNode::AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge)
 
 //// STUDENT CODE
 ////
-void GraphNode::MoveChatbotHere(ChatBot *chatbot)
+//Task 5: change argument type due to need chatbot instance in LoadAnswerGraphFromFile.
+void GraphNode::MoveChatbotHere(ChatBot chatbot)
 {
     _chatBot = chatbot;
-    _chatBot->SetCurrentNode(this);
+    //Task 5: _chatbot not equal to ptr anymore.
+    _chatBot.SetCurrentNode(this);
 }
 
 void GraphNode::MoveChatbotToNewNode(GraphNode *newNode)
 {
     newNode->MoveChatbotHere(_chatBot);
-    _chatBot = nullptr; // invalidate pointer at source
+    //Task 5: not ptr anymore, due to LoadAnswerGraphFromFile's new instance.
+    //_chatBot = nullptr; // invalidate pointer at source
 }
 ////
 //// EOF STUDENT CODE

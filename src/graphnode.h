@@ -22,7 +22,8 @@ private:
 
     // data handles (not owned)
     std::vector<GraphEdge *> _parentEdges; // edges to preceding nodes 
-    ChatBot *_chatBot;
+    //Task5: not ptr anymore, due to LoadAnswerGraphFromFile's new instance.
+    ChatBot _chatBot;
 
     ////
     //// EOF STUDENT CODE
@@ -52,7 +53,8 @@ public:
     //// STUDENT CODE
     ////
 
-    void MoveChatbotHere(ChatBot *chatbot);
+    //Task 5: change argument type due to need chatbot instance in LoadAnswerGraphFromFile.
+    void MoveChatbotHere(ChatBot chatbot);
 
     ////
     //// EOF STUDENT CODE
