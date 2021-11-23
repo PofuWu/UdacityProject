@@ -44,7 +44,8 @@ void GraphNode::AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge)
 //Task 5: change argument type due to need chatbot instance in LoadAnswerGraphFromFile.
 void GraphNode::MoveChatbotHere(ChatBot chatbot)
 {
-    _chatBot = chatbot;
+    //Task 5: reviewed by mentor, change to r value and move assignment operator.
+    _chatBot = std::move(chatbot);
     //Task 5: _chatbot not equal to ptr anymore.
     _chatBot.SetCurrentNode(this);
 }
